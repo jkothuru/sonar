@@ -2,9 +2,10 @@
 
 sudo add-apt-repository ppa:linuxuprising/java
 sudo apt-get update
-sudo apt-get install openjdk-11-jdk
+sudo apt-get install openjdk-11-jdk -y
 # Postgresql install (v9.6.10)
-apt-get install -y postgresql
+sudo apt-get install -y postgresql
+sudo su -
 su - postgres
 psql
 CREATE USER sonar ;
@@ -12,12 +13,13 @@ ALTER USER sonar WITH PASSWORD 'PASSWORD';
 CREATE DATABASE sonardb WITH ENCODING 'UTF8';
 ALTER DATABASE sonardb OWNER TO sonar;
 #ALTER USER sonar SET search_path TO sonardb;
+ctrl + z
 
 # Sonar install
-apt-get install -y unzip
+sudo apt-get install -y unzip
 wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.6.zip
 unzip sonarqube-7.6.zip
-mv sonarqube-7.6 /opt/sonarqube
+sudo mv sonarqube-7.6 /opt/sonarqube
 
 # Add sonar user
 adduser sonar
