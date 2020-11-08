@@ -30,3 +30,8 @@ And finally add the postgresql conf in /opt/sonarqube/conf/sonar.properties :
 sonar.jdbc.username=sonar
 sonar.jdbc.password=PASSWORD
 sonar.jdbc.url=jdbc:postgresql://localhost:5432/sonardb
+
+sudo su - sonar
+cd /opt/sonarqube/bin/linux-x86-64
+./sonar.sh start
+
